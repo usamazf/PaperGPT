@@ -1,11 +1,11 @@
-"""PaperGPT arvix class."""
+"""PaperGPT ArvixScrapper class."""
 from scrapper import Scrapper
 from typing import List
 import urllib, urllib.request
 import feedparser
 
 class ArvixScrapper(Scrapper):
-    """Abstract base class for PaperGPT scrapper."""
+    """ArvixScrapper class for PaperGPT to scrape arvix database."""
     
     def fetch_papers(self, title_keys: List[str], abstract_keys: List[str], other_keys: List[str]) -> List[str]:
         """Return list of papers with provided keywords.
