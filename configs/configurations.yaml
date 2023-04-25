@@ -1,0 +1,32 @@
+# """PaperGPT configurations.yaml file."""
+
+# this yaml file should contain all the underlying modules 
+# implemented so far. It will allow users to select specific
+# modules that they wish to run and also configure the input
+# parameters based on their needs.
+
+# the format of the module should be as follows
+# filename:
+#   ClassName: "the class name of the module"
+#   UseModule: True / False (wether to use this module)
+#   UserParams: { # user defined parameters provided by the developer
+#     "Param1": "Param1-Value",
+#     "Param2": "Param2-Value",
+#     "Param3": "Param3-Value"
+#   }
+
+arvix:
+  ClassName: ArvixScrapper
+  UseModule: True
+  Timeout: 1
+  UserParams: {
+    "title_keys": [
+      'Federated+Learning'
+    ],
+    "abstract_keys":[
+      'Federated+Learning'
+    ],
+    "other_keys":[
+      'Federated+Learning'
+    ],
+  }

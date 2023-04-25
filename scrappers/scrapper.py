@@ -1,25 +1,17 @@
-"""PaperGPT scrapper (abstract base class)."""
+"""PaperGPT central scrapper module to handle scraping request."""
 
-from abc import ABC
-from typing import List
+import json
+from .base import ScrapperBase
 
+# perform scraping using all the modules requested
+def perform_scrape(_module: ScrapperBase, _parameters: dict):
+        
+        # perform the fetch request
+        paper_list = _module.fetch_papers(_parameters)
 
-class Scrapper(ABC):
-    """Abstract base class for PaperGPT scrapper."""
-    
-    def fetch_papers(self, title_keys: List[str], abstract_keys: List[str], other_keys: List[str]) -> List[str]:
-        """Return list of papers with provided keywords.
-        Parameters
-        ----------
-        title_keys : List[str]
-                The list of keywords to search for in the title of the paper.
-        abstract_keys : List[str]
-                The list of keywords to search for in the abstract of the paper.
-        other_keys : List[str]
-                The list of keywords to search for in other parts of the paper.
-                
-        Returns
-        -------
-        List[str]
-            The list of papers with provided keywords.
-        """
+        # process the output
+        # currently test on a text file
+        # would be replaced with a DB transaction in the
+        # future updates.
+        with open("outfile.txt", "w") as fout:
+                json.dump(paper_list, fout)

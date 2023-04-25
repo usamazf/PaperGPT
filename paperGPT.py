@@ -1,21 +1,20 @@
-from scrappers import ArvixScrapper
+"""PaperGPT main function."""
 
-"""PaperGPT mian function."""
-# test code for current module
-if __name__=="__main__":
-    test_keywords = [
-        "FL",
-        "FedML",
-        "FML",
-        "Federated+Learning",
-        "Federated+Machine+Learning",
-    ]
-    # create a sample object of arvix scrapper
-    arvix_scrapper = ArvixScrapper()
-    papers = arvix_scrapper.fetch_papers(
-                            title_keys = test_keywords,
-                            abstract_keys = test_keywords,
-                            other_keys = []
-                    )
+import time
+import schedule
+from multiprocessing import Process
+from scrappers import schedule_scrape
+from configs.configurations import config
+
+
+if __name__ == '__main__':
+    schedule_scrape(config)
+    while True:
+        # Checks whether a scheduled task
+        # is pending to run or not
+        schedule.run_pending()
+        time.sleep(1)
     
-    #print(papers.read().decode('utf-8'))
+    #p = Process(target=timer_process, args=(config,))
+    #p.start()
+    #p.join()
