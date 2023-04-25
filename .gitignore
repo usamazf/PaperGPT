@@ -1,3 +1,4 @@
 # ignore compilation directiories
 */__pycache__
 outfile.txt
+*.db
