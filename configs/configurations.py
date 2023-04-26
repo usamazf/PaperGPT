@@ -1,7 +1,6 @@
 """PaperGPT configurations parser module."""
 
 import yaml
-from typing import Dict
 
 def init( ) -> None:
     global config

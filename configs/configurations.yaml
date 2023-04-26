@@ -6,27 +6,32 @@
 # parameters based on their needs.
 
 # the format of the module should be as follows
-# filename:
-#   ClassName: "the class name of the module"
-#   UseModule: True / False (wether to use this module)
-#   UserParams: { # user defined parameters provided by the developer
-#     "Param1": "Param1-Value",
-#     "Param2": "Param2-Value",
-#     "Param3": "Param3-Value"
-#   }
+# Modules:
+#     module_name:
+#         UseModule: True / False (wether to use this module)
+#         Timeout: # of minutes
+#         UserParams: # user defined parameters provided by the developer
+#             Param1: Param1-Value
+#             Param2: Param2-Value
+#             Param3: Param3-Value
+#             Param4-List:
+#                 - list-entry-1
+#                 - list-entry-2
+#                 - list-entry-3
 
-arvix:
-  ClassName: ArvixScrapper
-  UseModule: True
-  Timeout: 1
-  UserParams: {
-    "title_keys": [
-      'Federated+Learning'
-    ],
-    "abstract_keys":[
-      'Federated+Learning'
-    ],
-    "other_keys":[
-      'Federated+Learning'
-    ],
-  }
+modules:
+    arvix:
+        useModule: True
+        timeout: 0.25
+        userParams:
+            title_keys:
+                - Federated+Learning
+                - FL
+                - FL2
+            abstract_keys:
+                - Federated+Learning
+                - FL3
+                - FL4
+            other_keys:
+                - Federated+Learning
+                - FL5

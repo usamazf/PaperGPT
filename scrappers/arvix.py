@@ -32,7 +32,7 @@ class ArvixScrapper(ScrapperBase):
             keyword.replace(" ", "+")
             arvix_query += f"all:{keyword}+OR+"
         # build the arvix query URL
-        query_url = f'http://export.arxiv.org/api/query?search_query={arvix_query[:-4]}&start=0&max_results=1000'
+        query_url = f'http://export.arxiv.org/api/query?search_query={arvix_query[:-4]}&start=0&max_results=1'
         # make a post request to get papers
         response = urllib.request.urlopen(query_url).read()
         # parse the response received and create a paper list
@@ -40,9 +40,25 @@ class ArvixScrapper(ScrapperBase):
         # return paper list
         return papers
     
+    def __name__(self) -> str:
+        """Return name of the current module."""
+        return 'ARVIX'
+    
+    def __str__(self) -> str:
+        """Return name of the current module."""
+        return 'ARVIX'
+    
+    def name(self) -> str:
+        """Return name of the current module."""
+        return self.__name__()
+
     def parse_response(self, response) -> list[dict]:
         feed = feedparser.parse(response)
         
+        # do we keep meta information?
+        # not sure yet, need to figure out if
+        # this might be useful or not
+
         # print out feed information
         # print(f'Feed title: {feed.feed.title}')
         # print(f'Feed last updated: {feed.feed.updated}') 
@@ -79,11 +95,11 @@ class ArvixScrapper(ScrapperBase):
             #     pass
         
             # get the links to the abs page and pdf for this e-print
-            # for link in entry.links:
-            #     if link.rel == 'alternate':
-            #         print('abs page link: %s' % link.href)
-            #     elif link.title == 'pdf':
-            #         print('pdf link: %s' % link.href)
+            for link in entry.links:
+                if link.rel == 'alternate':
+                    print('abs page link: %s' % link.href)
+                elif link.title == 'pdf':
+                    current_paper['pdflink'] =  link.href
             
             # The journal reference, comments and primary_category sections live under 
             # the arxiv namespace
