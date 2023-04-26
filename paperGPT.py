@@ -1,8 +1,5 @@
 """PaperGPT main function."""
 
-import time
-import schedule
-from typing import NoReturn
 from multiprocessing import Process
 from scrappers import schedule_scrape
 from configs.configurations import config
