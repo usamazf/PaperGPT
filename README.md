@@ -15,10 +15,9 @@ Use the following steps to get started:
   cd PaperGPT
   ```
 
-2. Install dependencies:
-  ```
-  pip install -r requirements.txt
-  ```
+2. Install dependencies:```
+pip install -r requirements.txt
+```
 
 3. Modify parameters in the `configs/configurations.yaml`. To get more detail on all available parameters refer to docs.
 
