@@ -10,7 +10,7 @@ This method should work equally fine on Windows, MAC or Ubuntu systems.
 
 Use the following steps to get started:
 1. Clone the repository and enter the project directory to your local machine or a server of your choice:
-``` TextCopy code
+``` bash
 git clone https://github.com/usamazf/PaperGPT.git
 cd PaperGPT
 ```
