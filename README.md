@@ -10,12 +10,13 @@ This method should work equally fine on Windows, MAC or Ubuntu systems.
 
 Use the following steps to get started:
 1. Clone the repository and enter the project directory to your local machine or a server of your choice:
-  ```
-  git clone https://github.com/usamazf/PaperGPT.git
-  cd PaperGPT
-  ```
+```
+git clone https://github.com/usamazf/PaperGPT.git
+cd PaperGPT
+```
 
-2. Install dependencies:```
+2. Install dependencies:
+```
 pip install -r requirements.txt
 ```
 
@@ -24,9 +25,9 @@ pip install -r requirements.txt
 4. Obtain an API key from `OpenAI` and add it to `apikey.ini` if GPT integration is desired. Otherwise turn the GPT module off in `configurations.yaml`.
 
 5. Run PaperGPT.py file:
-  ```
-  python PaperGPT.py
-  ``` 
+```
+python PaperGPT.py
+``` 
 
 
 ### 二、Running with Docker
