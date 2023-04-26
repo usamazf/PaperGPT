@@ -4,7 +4,7 @@ PaperGPT is an AI powered research assistant to keep track of latest publication
 
 ## How to use:
 
-### 一、Run with python scripts
+### 1. Run with python scripts
 
 This method should work equally fine on Windows, MAC or Ubuntu systems.
 
@@ -30,7 +30,7 @@ python PaperGPT.py
 ``` 
 
 
-### 二、Running with Docker
+### 2. Running with Docker
 
 Docker containers are not implemented yet. Feel free to fork and implement then. Issue a pull request once finished implementing.
 
