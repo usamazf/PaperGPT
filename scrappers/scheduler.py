@@ -33,11 +33,11 @@ def schedule_scrape(all_module_configs: dict) -> list[Process]:
     # track of all scheduled modules
     scheduled_processes = []
 
-    # Module 1: arvix db
-    if (all_module_configs['arvix']['useModule']):
-        from scrappers.arvix import ArvixScrapper
-        _module = ArvixScrapper()
-        scheduled_processes.append(Process(target=run_process, args=(_module, all_module_configs['arvix'])))
+    # Module 1: arxiv db
+    if (all_module_configs['arxiv']['useModule']):
+        from scrappers.arxiv import ArxivScrapper
+        _module = ArxivScrapper()
+        scheduled_processes.append(Process(target=run_process, args=(_module, all_module_configs['arxiv'])))
     
     # Module 2: google-scholar db
 

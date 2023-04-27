@@ -1,12 +1,12 @@
-"""PaperGPT ArvixScrapper class."""
+"""PaperGPT ArxivScrapper class."""
 
 from typing import List
 import urllib, urllib.request
 import feedparser
 from .base import ScrapperBase
 
-class ArvixScrapper(ScrapperBase):
-    """ArvixScrapper class for PaperGPT to scrape arvix database."""
+class ArxivScrapper(ScrapperBase):
+    """ArxivScrapper class for PaperGPT to scrape arxiv database."""
     
     def fetch_papers(self, args: dict) -> List[str]:
         """Return list of papers with provided keywords.
@@ -21,18 +21,18 @@ class ArvixScrapper(ScrapperBase):
             The list of papers with provided keywords.
         """
         # build a query list
-        arvix_query = ""
+        arxiv_query = ""
         for keyword in args['title_keys']:
             keyword.replace(" ", "+")
-            arvix_query += f"ti:{keyword}+OR+"
+            arxiv_query += f"ti:{keyword}+OR+"
         for keyword in args['abstract_keys']:
             keyword.replace(" ", "+")
-            arvix_query += f"abs:{keyword}+OR+"
+            arxiv_query += f"abs:{keyword}+OR+"
         for keyword in args['other_keys']:
             keyword.replace(" ", "+")
-            arvix_query += f"all:{keyword}+OR+"
-        # build the arvix query URL
-        query_url = f'http://export.arxiv.org/api/query?search_query={arvix_query[:-4]}&start=0&max_results=1'
+            arxiv_query += f"all:{keyword}+OR+"
+        # build the arxiv query URL
+        query_url = f'http://export.arxiv.org/api/query?search_query={arxiv_query[:-4]}&start=0&max_results=1'
         # make a post request to get papers
         response = urllib.request.urlopen(query_url).read()
         # parse the response received and create a paper list
@@ -42,11 +42,11 @@ class ArvixScrapper(ScrapperBase):
     
     def __name__(self) -> str:
         """Return name of the current module."""
-        return 'ARVIX'
+        return 'ARXIV'
     
     def __str__(self) -> str:
         """Return name of the current module."""
-        return 'ARVIX'
+        return 'ARXIV'
     
     def name(self) -> str:
         """Return name of the current module."""

@@ -20,9 +20,9 @@
 #                 - list-entry-3
 
 modules:
-    arvix:
+    arxiv:
         useModule: True
-        timeout: 0.25
+        timeout: 0.25 # minutes
         userParams:
             title_keys:
                 - Federated+Learning

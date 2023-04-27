@@ -17,8 +17,8 @@ def perform_scrape(_module: ScrapperBase, _parameters: dict):
         # currently test on a text file
         # would be replaced with a DB transaction in the
         # future updates.
-        #with open("outfile.txt", "w") as fout:
-        #        json.dump(paper_list, fout)
+        with open("outfile.txt", "w") as fout:
+                json.dump(paper_list, fout)
         
         # prepare date to be inserted into the database
         tuple_list = []
